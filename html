@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form id="studentForm">
+
+    <input type="text" id="name" placeholder="Full Name" required><br><br>
+
+    <input type="email" id="email" placeholder="Email" required><br><br>
+
+    <input type="date" id="dob" required><br><br>
+
+    <input type="tel" id="mobile" placeholder="Mobile Number" required><br><br>
+
+    Gender:
+    <input type="radio" name="gender" value="Male" required> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br><br>
+
+    Course:
+    <select id="course" required>
+        <option value="">Select Course</option>
+        <option>B.Tech</option>
+        <option>BCA</option>
+        <option>MCA</option>
+        <option>M.Tech</option>
+    </select>
+    <br><br>
+
+    <input type="text" id="year" placeholder="Year of Study" required><br><br>
+
+    <textarea id="address" placeholder="Address" required></textarea><br><br>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<h3>Registered Students</h3>
+
+<table border="1" id="studentTable">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Course</th>
+    </tr>
+</table>
+
+<script>
+document.getElementById("studentForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let mobile = document.getElementById("mobile").value;
+    let course = document.getElementById("course").value;
+
+    let table = document.getElementById("studentTable");
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = name;
+    row.insertCell(1).innerHTML = email;
+    row.insertCell(2).innerHTML = mobile;
+    row.insertCell(3).innerHTML = course;
+
+    document.getElementById("studentForm").reset();
+});
+</script>
+
+</body>
+</html>
